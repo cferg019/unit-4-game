@@ -14,7 +14,7 @@ var winsText = document.getElementById("wins")
 var lossesText = document.getElementById("losses")
 
 // screen refresh
-var updateScreen = function() {
+var updateScreen = function () {
     randomNumText.textContent = "Random Number: " + randomNum;
     winsText.textContent = "Wins: " + wins;
     lossesText.textContent = "Losses: " + losses;
@@ -22,36 +22,56 @@ var updateScreen = function() {
 }
 
 // game start 
-var startUp = function() {
-    randomNum = [Math.floor(Math.random() * 101) + 19];
-    gemStone1 = [Math.floor(Math.random() * 12) + 1];
-    gemStone2 = [Math.floor(Math.random() * 12) + 1];
-    gemStone3 = [Math.floor(Math.random() * 12) + 1];
-    gemStone4 = [Math.floor(Math.random() * 12) + 1];
-    
+var startUp = function () {
+    randomNum = Math.floor(Math.random() * 101) + 19;
+    gemStone1 = Math.floor(Math.random() * 12) + 1;
+    gemStone2 = Math.floor(Math.random() * 12) + 1;
+    gemStone3 = Math.floor(Math.random() * 12) + 1;
+    gemStone4 = Math.floor(Math.random() * 12) + 1;
+    scoreCount = 0
+
     updateScreen()
+}
+
+// score calculation 
+var recalcScore = function(gemStoneValue) {
+    scoreCount = scoreCount += gemStoneValue
+    if (scoreCount === randomNum) {
+        alert("You win!");
+        wins++;
+        return startUp();
+    }
+    else if (scoreCount > randomNum) {
+        alert("You lose! You exceeded the goal by " + (scoreCount - randomNum + "."));
+        losses++;
+        return startUp();
+    }
+    updateScreen()
+
 }
 
 // gemstone 1
 $("#gemStone1").on("click", function () {
-    console.log(gemStone1)
+    recalcScore(gemStone1)
 })
 
 // gemstone 2
 $("#gemStone2").on("click", function () {
-    console.log(gemStone2)
+    recalcScore(gemStone2)
 })
 
 // gemstone 3
 $("#gemStone3").on("click", function () {
-    console.log(gemStone3)
+    recalcScore(gemStone3)
 })
 
 // gemstone 4
 $("#gemStone4").on("click", function () {
-    console.log(gemStone4)
+    recalcScore(gemStone4)
 })
 
 
 
-startUp()
+$(document).ready(function () {
+    startUp()
+})
