@@ -1,3 +1,33 @@
+body {
+    background:#d0e1f9;
+}
+
 .card {
-    border: none
+    border: none;
+    color: #1e1f26;
+    background: #d0e1f9;
+}
+
+h1 {
+    text-align: center;
+    color: #283655;
+    padding: 20px 0px;
+}
+
+#gameStatus {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 14px
+}
+
+#randomNum, #wins, #losses, #gameStatus, #scoreCount {
+    padding-top: 12px;
+    font-size: 18px;
+}
+
+.col-md-3 {
+    padding: 0px;
 }
