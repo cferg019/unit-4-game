@@ -52,26 +52,6 @@ var recalcScore = function(gemStoneValue) {
     updateScreen()
 }
 
-// gemstone 1
-$("#gemStone1").on("click", function () {
-    recalcScore(gemStone1)
-})
-
-// gemstone 2
-$("#gemStone2").on("click", function () {
-    recalcScore(gemStone2)
-})
-
-// gemstone 3
-$("#gemStone3").on("click", function () {
-    recalcScore(gemStone3)
-})
-
-// gemstone 4
-$("#gemStone4").on("click", function () {
-    recalcScore(gemStone4)
-})
-
 //end game 
 var endGame = function (outcome) {
     var i = 3;
@@ -91,6 +71,25 @@ var endGame = function (outcome) {
     interval = setInterval(updateOutcomeText, 1000)
 }
 
+// gemstone 1
+$("#gemStone1").on("click", function () {
+    recalcScore(gemStone1)
+})
+
+// gemstone 2
+$("#gemStone2").on("click", function () {
+    recalcScore(gemStone2)
+})
+
+// gemstone 3
+$("#gemStone3").on("click", function () {
+    recalcScore(gemStone3)
+})
+
+// gemstone 4
+$("#gemStone4").on("click", function () {
+    recalcScore(gemStone4)
+})
 
 $(document).ready(function () {
     startUp()
